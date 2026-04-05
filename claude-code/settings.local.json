@@ -1,0 +1,54 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git status)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git diff *)",
+      "Bash(git log *)",
+      "Bash(git push *)",
+      "Bash(git pull *)",
+      "Bash(ls *)",
+      "Bash(date *)",
+      "Bash(cat *)"
+    ]
+  },
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "type": "command",
+        "command": "bash ~/.claude/hooks/trust-the-file.sh \"$PROMPT\"",
+        "timeout": 5000
+      }
+    ],
+    "SessionStart": [
+      {
+        "type": "command",
+        "command": "bash ~/.claude/hooks/session-start.sh"
+      }
+    ],
+    "Stop": [
+      {
+        "type": "command",
+        "command": "bash ~/.claude/hooks/session-stop.sh"
+      }
+    ],
+    "PostToolUse": [
+      {
+        "type": "command",
+        "command": "bash ~/.claude/hooks/validate-yaml.sh \"$FILE_PATH\"",
+        "matcher": "Write"
+      },
+      {
+        "type": "command",
+        "command": "bash ~/.claude/hooks/auto-commit.sh \"$FILE_PATH\"",
+        "matcher": "Write"
+      },
+      {
+        "type": "command",
+        "command": "bash ~/.claude/hooks/auto-commit.sh \"$FILE_PATH\"",
+        "matcher": "Edit"
+      }
+    ]
+  }
+}
