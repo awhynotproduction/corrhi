@@ -1,5 +1,5 @@
 ---
-type: claude-brain
+type: agent-brain
 purpose: Stable reference — DRC processing methodology
 ---
 
@@ -61,7 +61,7 @@ The connection phase. Raw material becomes knowledge.
 - Update `maps/projects.md` when project metadata changes
 - Update `maps/sources.md` when sources are added or completed
 - Update `maps/dashboard.md` with current priorities
-- Keep `_claude/goals.md` current at every session end
+- Keep `_agent/goals.md` current at every session end
 
 ### Decompose
 - Break complex captures into atomic notes (one concept per note)
@@ -79,7 +79,7 @@ The connection phase. Raw material becomes knowledge.
 ### Connect
 - Add wiki-links between related notes
 - Look for non-obvious connections across domains
-- When a connection is uncertain, add it to `_claude/pending-connections.md` for user review
+- When a connection is uncertain, add it to `_agent/pending-connections.md` for user review
 - Sources should link to notes they sparked
 - Notes should link to sources that informed them
 - Projects should link to relevant notes and sources
@@ -121,8 +121,7 @@ The output phase. Knowledge becomes action.
 ### Recurring Maintenance
 | Task | Frequency | What it does |
 |------|-----------|--------------|
-| `reweave` | Weekly | Scan for missing wiki-links, orphan notes, broken connections |
-| `vault-health` | Weekly | Check for template compliance, empty notes, stale projects |
+| `reweave` | Weekly | Scan for missing wiki-links, orphan notes, broken connections, template compliance, stale projects |
 | `tune-claude` | On condition (10+ diffs) | Synthesize approval-diffs into user-lens patterns |
 | `process-inbox` | Daily | Process unprocessed captures |
 

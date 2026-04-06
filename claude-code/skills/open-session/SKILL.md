@@ -10,10 +10,10 @@ Session start protocol. Run automatically or when the user types /open-session.
 
 ## Steps
 
-1. Read `_claude/goals.md` for session continuity (last session summary, pick up next)
+1. Read `_agent/goals.md` for session continuity (last session summary, pick up next)
 2. Check `_review/` for pending proposals (count them)
 3. Check `capture/` for unprocessed items (count them)
-4. Read `_claude/[user]-lens.md` if doing substantial work this session
+4. Read `_agent/[user]-lens.md` if doing substantial work this session
 
 5. Deliver a PM check-in (3-6 lines, NOT a briefing deck):
    - Flag any autonomous work completed since last session

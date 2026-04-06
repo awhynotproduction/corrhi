@@ -23,7 +23,7 @@ Show the user the next batch of items from `_review/` for approval. Two types li
    - project-task: **acknowledge** (done), **reject** (delete), or **redirect** (with new direction)
 5. Process immediately:
    - **Approved:** Check git diff for user's edits → log to approval-diffs if edited → create note at destination → delete from _review/
-   - **Acknowledged:** Update linked project file → move task to `_claude/archive/`
+   - **Acknowledged:** Update linked project file → move task to `_agent/archive/`
    - **Rejected:** Delete from _review/
    - **Revise:** Apply feedback, tell user it's ready for re-review
    - **Redirect:** Update task based on new direction, re-present

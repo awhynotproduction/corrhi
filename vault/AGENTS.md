@@ -1,16 +1,16 @@
 # {{VAULT_NAME}} — Personal Knowledge + AI Autonomy System
 
-{{USER_NAME}}'s Obsidian vault + Claude's persistent memory (`_claude/`). One knowledge graph.
+{{USER_NAME}}'s Obsidian vault + agent persistent memory (`_agent/`). One knowledge graph.
 
 ## Session Start Protocol
-1. Read `_claude/goals.md` to pick up where we left off
-2. Read `_claude/pending-connections.md` if it exists
+1. Read `_agent/goals.md` to pick up where we left off
+2. Read `_agent/pending-connections.md` if it exists
 3. Check `_review/` for pending proposals
 4. **PM check-in** (3-6 lines): flag autonomous work completed, surface the most time-critical item, ask one question to get the session moving. If the user's opening message already says what they want, skip the question and start working.
 5. If the user names a project, read that project file and brief on status + next actions
 
 ## Processing Instructions
-Read `_claude/methodology.md` for the full DRC methodology when processing capture items.
+Read `_agent/methodology.md` for the full DRC methodology when processing capture items.
 
 ## Folder Purposes
 | Folder | What goes here |
@@ -27,8 +27,8 @@ Read `_claude/methodology.md` for the full DRC methodology when processing captu
 | `maps/` | Index files — projects dashboard, source lists, topic maps |
 | `lists/` | Lightweight tracking — reading lists, watch lists, wishlists |
 | `templates/` | Obsidian templates for consistent note creation |
-| `_claude/` | Claude's persistent memory — goals, methodology, corrections, research |
-| `_review/` | Proposals from Claude awaiting user approval |
+| `_agent/` | Agent persistent memory — goals, methodology, corrections, research |
+| `_review/` | Proposals from agent awaiting user approval |
 
 ## Autonomy Rules
 
@@ -37,8 +37,8 @@ Read `_claude/methodology.md` for the full DRC methodology when processing captu
 - Adding wiki-links between related notes
 - Updating `maps/` index files after changes
 - Appending to interaction logs in `people/` notes
-- Updating `_claude/goals.md` at session end
-- Running recurring maintenance (reweave, vault-health)
+- Updating `_agent/goals.md` at session end
+- Running recurring maintenance (reweave)
 - Updating project metadata in BOTH the project file AND `maps/projects.md`
 
 ### Propose first (create in `_review/`)
@@ -50,7 +50,7 @@ Read `_claude/methodology.md` for the full DRC methodology when processing captu
 - Any structural change to vault organization
 
 ### Decision support
-When uncertain, read `_claude/user-lens.md` for the user's decision patterns. When still uncertain, propose.
+When uncertain, read `_agent/user-lens.md` for the user's decision patterns. When still uncertain, propose.
 
 ## Template Conventions
 - All notes use YAML frontmatter with `type:` field
@@ -74,8 +74,8 @@ type: proposal
 
 ## Task Management
 - Projects track their own next actions in their project file
-- `_claude/goals.md` tracks session-to-session handoff
-- `_claude/claude-todos.md` tracks recurring autonomous tasks
+- `_agent/goals.md` tracks session-to-session handoff
+- `_agent/agent-todos.md` tracks recurring autonomous tasks
 - `maps/projects.md` is the master project index
 
 ## Linking Conventions
@@ -99,7 +99,7 @@ type: proposal
 1. Verify all new wiki-links resolve to real files
 2. Update relevant `maps/` files if structure changed
 3. Move processed captures to `capture/archive/`
-4. Log session summary to `_claude/goals.md`
+4. Log session summary to `_agent/goals.md`
 
 ## Communication Style
 Match the user's communication style. Learn their preferences through corrections. Default: direct, clear, no fluff.

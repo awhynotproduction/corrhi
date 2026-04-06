@@ -10,7 +10,7 @@ First-run skill for new corrhi users. Detected automatically when goals.md is em
 
 **Two modes — check which path the user arrived on:**
 - **Post-setup.sh path** (this file) — vault skeleton already exists from `setup.sh`; run the 5-question seeding interview below.
-- **Cold-start path** (see [`cold-start.md`](cold-start.md)) — user pasted `IDEA.md` into a fresh session with no vault, no infrastructure. Full interview + scaffolding required. If there is no `_claude/` folder and no `CLAUDE.md` at any root, route there instead.
+- **Cold-start path** (see [`cold-start.md`](cold-start.md)) — user pasted `IDEA.md` into a fresh session with no vault, no infrastructure. Full interview + scaffolding required. If there is no `_agent/` folder and no `AGENTS.md` at any root, route there instead.
 
 ## Steps
 

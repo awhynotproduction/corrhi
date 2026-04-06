@@ -52,7 +52,7 @@ Make sure you opened the right folder. In Obsidian: Settings > About > Vault pat
 The auto-commit hook only fires on vault writes/edits within Claude Code. Manual Obsidian edits won't auto-commit. Use Obsidian Git plugin for those, or commit manually.
 
 ### Broken wiki links
-Run `/vault-health` — it checks for broken links and reports them.
+Run `/reweave` — it checks for broken links, orphan notes, and reports them.
 
 ## Tier 3 Issues
 

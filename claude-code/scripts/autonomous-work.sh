@@ -18,14 +18,14 @@
 #     Fresh week = 60%. Last day = ~94%. Last 4 hours = ~99%.
 #   - Sonnet: block if >85%
 #
-# Modes (set in claude-todos.md frontmatter):
+# Modes (set in agent-todos.md frontmatter):
 #   normal — 5hr + dynamic weekly governor
 #   vacation — use up to 95%
 #   light — minimal autonomous work
 
 VAULT="${CORRHI_VAULT:-$HOME/Documents/corrhi-vault}"
 LOCAL="${HOME}/.claude/autonomous"
-TODOS="${VAULT}/_claude/claude-todos.md"
+TODOS="${VAULT}/_agent/agent-todos.md"
 LOCKFILE="/tmp/claude-autonomous.lock"
 LOG="${LOCAL}/autonomous-log.md"
 
@@ -65,7 +65,7 @@ fi
 
 # --- Guard: todos file exists ---
 if [ ! -f "${TODOS}" ]; then
-  log "SKIP: No claude-todos.md found"
+  log "SKIP: No agent-todos.md found"
   exit 0
 fi
 
@@ -142,16 +142,16 @@ fi
 
 log "Starting autonomous session (mode=${MODE})"
 
-# --- Build task prompt from claude-todos.md ---
+# --- Build task prompt from agent-todos.md ---
 TASK_PROMPT="You are running in autonomous mode. Today: $(date '+%Y-%m-%d %H:%M %Z'). No human present.
 
-Read _claude/claude-todos.md and execute any tasks that are due:
+Read _agent/agent-todos.md and execute any tasks that are due:
 - Recurring tasks: check schedule (every:) and last run date (last:)
 - Active tasks: execute in order
 - Reminders: skip (these are for interactive sessions)
 
 Write results to _review/ as project-tasks with YAML frontmatter.
-Update claude-todos.md with completion timestamps.
+Update agent-todos.md with completion timestamps.
 Do NOT modify project files directly — propose changes via _review/.
 Be efficient — use the model specified by each task."
 

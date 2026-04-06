@@ -14,5 +14,5 @@ fi
 
 cat << EOF
 Vault status: $REVIEW_COUNT items in _review/. $CAPTURE_COUNT unprocessed captures.
-Read _claude/goals.md for session continuity. Run /open-session.
+Read _agent/goals.md for session continuity. Run /open-session.
 EOF

@@ -35,4 +35,4 @@ Periodic backward pass through the vault. Find connections that weren't obvious 
 - Don't auto-execute link additions — propose them so the user can verify
 - Emergence detection is the highest-value output — spend time here
 - Keep proposals concise — the user will review many at once
-- Run weekly (scheduled via claude-todos.md)
+- Run weekly (scheduled via agent-todos.md)

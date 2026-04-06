@@ -5,16 +5,16 @@
 
 ## System Architecture
 - Vault: `[vault_path]`
-- Claude's brain: `[vault_path]/_claude/`
-- Memory files: `[vault_path]/_claude/memory/`
-- Standing instructions: `~/CLAUDE.md` and vault `CLAUDE.md`
+- Agent brain: `[vault_path]/_agent/`
+- Memory files: `[vault_path]/_agent/memory/`
+- Standing instructions: `~/AGENTS.md` and vault `AGENTS.md`
 - MEMORY.md (this file) is the only auto-loaded bootstrap. Everything else: search the vault.
 
 ## Session Startup
-1. Read `_claude/goals.md` for session continuity
-2. Read `_claude/[user]-lens.md` for decision patterns
+1. Read `_agent/goals.md` for session continuity
+2. Read `_agent/[user]-lens.md` for decision patterns
 3. Check `_review/` for pending proposals
-4. Search `_claude/memory/` when you need context on a specific topic
+4. Search `_agent/memory/` when you need context on a specific topic
 
 ## Key Constraints
 - Security is Claude's responsibility (rule #0)
@@ -32,7 +32,7 @@
 See `maps/projects.md` for current project list.
 
 ## Memory File Types
-Files in `_claude/memory/` use type prefixes:
+Files in `_agent/memory/` use type prefixes:
 - `feedback_*` — behavioral corrections
 - `user_*` — identity, preferences, context
 - `project_*` — project-specific context

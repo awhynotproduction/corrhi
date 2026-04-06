@@ -1,5 +1,5 @@
 ---
-type: claude-brain
+type: agent-brain
 ---
 
 # Pending Connections

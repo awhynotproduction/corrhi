@@ -1,5 +1,5 @@
 ---
-type: claude-brain
+type: agent-brain
 purpose: Session timestamps for pattern learning
 ---
 

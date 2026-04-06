@@ -19,18 +19,6 @@ This is what Claude produces during a Tier 3 autonomous session (between interac
 
 ---
 
-## Vault Health (weekly)
-
-| Check | Status |
-|-------|--------|
-| Broken links | 0 |
-| Orphan notes | 2 (notes/random-thought.md, notes/old-idea.md) |
-| Missing frontmatter | 1 (sources/article-climate.md missing `media` field) |
-| Stale projects | 1 (podcast-idea.md) |
-| Empty required sections | 0 |
-
----
-
 ## Process Inbox (daily)
 
 Processed 2 captures from capture/:

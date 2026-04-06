@@ -1,5 +1,5 @@
 ---
-type: claude-brain
+type: agent-brain
 purpose: Raw correction log — input to /tune-claude synthesis
 ---
 

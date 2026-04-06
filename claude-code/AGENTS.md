@@ -4,8 +4,8 @@ This is [User]'s home directory. Claude operates from here as the default hub, n
 
 ## Key Paths
 - Vault: `$VAULT_PATH`
-- Claude's brain: `$VAULT/_claude/`
-- Memory files: `$VAULT/_claude/memory/`
+- Agent brain: `$VAULT/_agent/`
+- Memory files: `$VAULT/_agent/memory/`
 - Bootstrap: `~/.claude/projects/[project-path]/memory/MEMORY.md` (auto-loaded)
 
 ## Behavioral Rules
@@ -26,7 +26,7 @@ Standing instructions from repeated corrections. These override default behavior
 12. **Think about WHY before executing.** Before mechanically completing a task, consider the purpose behind it. When hitting a tool limitation, research alternatives and present options — never present the limitation as a dead end or complete the task in a degraded way without flagging it first.
 13. **Update system docs on every architecture change — grep, don't guess.** After ANY architectural change (new folders, eliminated folders, renamed concepts, changed workflows), grep the entire vault + home dir for every reference to the changed thing. Fix every hit. Verify with a final grep that zero stale references remain. Never rely on memory for which files mention something — memory misses things, grep doesn't.
 14. **Proactive risk management.** When reviewing or updating any project, always assess: what's at risk, what's unrealistic, what dependencies could block progress, what deadlines are in danger. Flag these directly — don't wait to be asked. Think ahead: if X doesn't happen by Y, what breaks?
-15. **Single-source project metadata.** The project file's YAML frontmatter (priority, status, due) is the source of truth. When changing any project metadata, update BOTH the project file AND `maps/projects.md` in the same turn. Never update one without the other. When changing how the vault or Claude's systems work (new file types, new workflows, deprecated files, changed conventions), update vault `CLAUDE.md`, home `CLAUDE.md`, and `MEMORY.md` in the SAME turn.
+15. **Single-source project metadata.** The project file's YAML frontmatter (priority, status, due) is the source of truth. When changing any project metadata, update BOTH the project file AND `maps/projects.md` in the same turn. Never update one without the other. When changing how the vault or Claude's systems work (new file types, new workflows, deprecated files, changed conventions), update vault `AGENTS.md`, home `AGENTS.md`, and `MEMORY.md` in the SAME turn.
 
 ## Autonomy Protocol
 
@@ -40,7 +40,7 @@ After writing or modifying code:
 When writing plans:
 1. Include acceptance criteria per step (machine-verifiable where possible).
 2. Stress-test: what would the user push back on? Address it before presenting.
-3. Read `_claude/[user]-lens.md` decision patterns if doing substantial work.
+3. Read `_agent/[user]-lens.md` decision patterns if doing substantial work.
 
 ### Iteration (Ralph Loop)
 For multi-step tasks:
@@ -48,14 +48,14 @@ For multi-step tasks:
 2. After completing a step, verify against criteria.
 3. If fail: log failure, adjust approach, retry (max 3 attempts with different approaches).
 4. Only ask the user for help after 3 failed attempts.
-5. For multi-session tasks: persist state in `_claude/archive/TASK-NAME.md` (goal, steps with status, acceptance criteria, progress log). Next session reads the file and resumes from first incomplete step.
+5. For multi-session tasks: persist state in `_agent/archive/TASK-NAME.md` (goal, steps with status, acceptance criteria, progress log). Next session reads the file and resumes from first incomplete step.
 
 ### Compaction Protection + Tier Assessment
 When the user corrects your approach or gives significant feedback, assess tier IMMEDIATELY:
 
 1. **Is this a behavioral rule?** (Something Claude should DO differently every time, not just know.)
-   - YES -> Add to `## Behavioral Rules` in this CLAUDE.md NOW + log to `_claude/approval-diffs.md`
-   - NO -> Log to `_claude/approval-diffs.md` only (processed later by `/tune-claude`)
+   - YES -> Add to `## Behavioral Rules` in this AGENTS.md NOW + log to `_agent/approval-diffs.md`
+   - NO -> Log to `_agent/approval-diffs.md` only (processed later by `/tune-claude`)
 
 2. **Signals it's behavioral:** The user has corrected this before, it's about tool selection, it's about communication style, it's a "never do X" or "always do Y." If in doubt, promote — false positives in Behavioral Rules are cheap, repeated violations are expensive.
 

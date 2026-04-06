@@ -9,7 +9,7 @@ Most "second brains" fail because: (a) you capture faster than you process, (b) 
 This pattern fixes all three by running **two brains on one graph**:
 
 1. **Your brain** — folders of your words: notes, projects, people, consumed media, journal. The AI never writes here directly.
-2. **The AI's brain** — a separate folder (`_claude/` or equivalent) for its persistent memory: session goals, a living model of how you think ("lens file"), methodology, autonomous research output, wiki-linked memory files.
+2. **The AI's brain** — a separate folder (`_agent/` or equivalent) for its persistent memory: session goals, a living model of how you think ("lens file"), methodology, autonomous research output, wiki-linked memory files.
 3. **A review bridge** (`_review/`) — a proposal queue between the two. Nothing the AI generates enters your brain until you edit it into your own words and approve it. The editing *is* the reflection practice.
 
 Over time, your corrections become the AI's training signal. Not fine-tuning — a synthesis file ("your lens") updated from a log of every edit you made. Correction-driven, not instruction-driven.
@@ -66,7 +66,7 @@ The agent **proposes (never auto-executes)** for:
 - Extracting atomic ideas from a brain dump
 - Flagging something as stale or suggesting reaching out to stale contacts
 
-This boundary is the difference between a useful coworker and a runaway content machine. Enforce it in the root `CLAUDE.md` (or equivalent agent config file).
+This boundary is the difference between a useful coworker and a runaway content machine. Enforce it in the root `AGENTS.md` (or equivalent agent config file).
 
 ## Correction-driven learning
 
@@ -108,7 +108,7 @@ You — the agent reading this — your job is not to run a setup script. Your j
 1. Read this entire file and tell the human, in your own words, what you understood.
 2. Ask them: What do you make? What are you working on right now? Who are the people in your life you want to keep track of? What have you been reading, watching, thinking about? What frustrates you about how you currently manage information? Do they use Obsidian, another markdown editor, or nothing yet?
 3. From their answers, draft a proposed folder structure (using the *categories* above) with names that fit their life — not the names in this file.
-4. Draft a starter `CLAUDE.md` at the root of their vault encoding the autonomy boundary, the review pipeline, and the two-brains discipline. Keep it under 100 lines.
+4. Draft a starter `AGENTS.md` at the root of their vault encoding the autonomy boundary, the review pipeline, and the two-brains discipline. Keep it under 100 lines.
 5. Draft a starter lens file with whatever they've told you about themselves so far. Mark it as a seed; it will grow.
 6. Create the review folder and place your first proposal in it: the proposed structure itself. Let them edit and approve it before you create anything else.
 7. Tell them the next step is to capture something — anything — and watch the pipeline run end-to-end.

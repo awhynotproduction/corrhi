@@ -6,7 +6,7 @@ Your corrhi vault has two inhabitants:
 
 **Your brain** — `notes/`, `projects/`, `sources/`, `people/`, `self/`, `maps/`, `lists/`, `writing/`. This is your knowledge. Claude helps organize it, but everything here is in your words, reviewed and approved by you.
 
-**Claude's brain** — `_claude/`. Goals, decision lens, memory files, methodology, research, archive. This is Claude's working memory. It reads your brain, maintains its own, and proposes changes through `_review/`.
+**Agent brain** — `_agent/`. Goals, decision lens, memory files, methodology, research, archive. This is the agent's working memory. It reads your brain, maintains its own, and proposes changes through `_review/`.
 
 The two share one knowledge graph. Wiki-links connect ideas across both brains. But the boundary is clear: Claude proposes, you decide.
 
@@ -30,7 +30,7 @@ Claude gets smarter the more you use it.
 2. **Claude logs the correction** — immediately saved to `approval-diffs.md`
 3. **Patterns accumulate** — after 10+ corrections, `/tune-claude` synthesizes them
 4. **Decision lens updates** — `[you]-lens.md` captures how you think and decide
-5. **Behavioral rules promote** — recurring patterns become standing instructions in `CLAUDE.md`
+5. **Behavioral rules promote** — recurring patterns become standing instructions in `AGENTS.md`
 
 This means Claude's mistakes are one-time. The system evolves through use, not through version updates.
 
@@ -63,7 +63,7 @@ Between sessions, Claude can run autonomous maintenance (Tier 3): finding connec
 | Add wiki links between notes | Auto |
 | Update Maps of Content | Auto |
 | Update living lists | Auto |
-| Update Claude's brain files | Auto |
+| Update agent brain files | Auto |
 | **Create a new note** | **Propose** |
 | **Change project priority** | **Propose** |
 | **Create a new project** | **Propose** |

@@ -76,7 +76,7 @@ echo ""
 
 # --- Question 4: Tier ---
 echo -e "${CYAN}Which tier?${NC}"
-echo "  1) Knowledge System (vault + templates + CLAUDE.md)"
+echo "  1) Knowledge System (vault + templates + AGENTS.md)"
 echo "  2) Memory + Learning (+ brain, hooks, skills, learning loop)"
 echo "  3) Full Autonomy (+ autonomous engine, remote access)"
 echo ""
@@ -103,15 +103,15 @@ cp "$SCRIPT_DIR/vault/.claudeignore" "$VAULT_PATH/.claudeignore" 2>/dev/null || 
 cp -R "$SCRIPT_DIR/vault/.obsidian" "$VAULT_PATH/.obsidian" 2>/dev/null || true
 
 # --- Rename user-lens.md ---
-if [ -f "$VAULT_PATH/_claude/user-lens.md" ]; then
+if [ -f "$VAULT_PATH/_agent/user-lens.md" ]; then
   sed "s/\[User\]/${USER_FIRST_NAME}/g; s/{{USER_NAME}}/${USER_FIRST_NAME}/g" \
-    "$VAULT_PATH/_claude/user-lens.md" > "$VAULT_PATH/_claude/${USER_LOWER}-lens.md"
-  rm "$VAULT_PATH/_claude/user-lens.md"
+    "$VAULT_PATH/_agent/user-lens.md" > "$VAULT_PATH/_agent/${USER_LOWER}-lens.md"
+  rm "$VAULT_PATH/_agent/user-lens.md"
   echo -e "  ${GREEN}+${NC} Created ${USER_LOWER}-lens.md"
 fi
 
 # --- Personalize vault files (replace both placeholder styles) ---
-for vfile in "$VAULT_PATH/CLAUDE.md" "$VAULT_PATH/_claude/"*.md; do
+for vfile in "$VAULT_PATH/AGENTS.md" "$VAULT_PATH/_agent/"*.md; do
   [ -f "$vfile" ] || continue
   sed -i '' "s/\[User\]/${USER_FIRST_NAME}/g; s/{{USER_NAME}}/${USER_FIRST_NAME}/g; s/{{VAULT_NAME}}/corrhi/g; s/user-lens\.md/${USER_LOWER}-lens.md/g" "$vfile" 2>/dev/null || true
 done
@@ -166,11 +166,11 @@ if [ -d "$SCRIPT_DIR/claude-code/skills" ]; then
   echo -e "  ${GREEN}+${NC} Installed skills"
 fi
 
-# --- Write home CLAUDE.md ---
-if [ -f "$SCRIPT_DIR/claude-code/CLAUDE.md" ]; then
+# --- Write home AGENTS.md ---
+if [ -f "$SCRIPT_DIR/claude-code/AGENTS.md" ]; then
   sed "s|\[User\]|${USER_FIRST_NAME}|g; s|{{USER_NAME}}|${USER_FIRST_NAME}|g; s|\\\$VAULT_PATH|${VAULT_PATH}|g; s|user-lens\.md|${USER_LOWER}-lens.md|g; s|\[user\]-lens\.md|${USER_LOWER}-lens.md|g" \
-    "$SCRIPT_DIR/claude-code/CLAUDE.md" > "$HOME/CLAUDE.md"
-  echo -e "  ${GREEN}+${NC} Created ~/CLAUDE.md"
+    "$SCRIPT_DIR/claude-code/AGENTS.md" > "$HOME/AGENTS.md"
+  echo -e "  ${GREEN}+${NC} Created ~/AGENTS.md"
 fi
 
 # --- Write MEMORY.md ---

@@ -15,9 +15,9 @@ case "$FILE" in
   *) exit 0 ;;
 esac
 
-# Skip _claude/ brain files (different schema)
+# Skip _agent/ brain files (different schema)
 case "$FILE" in
-  "$VAULT/_claude/"*) exit 0 ;;
+  "$VAULT/_agent/"*) exit 0 ;;
 esac
 
 # Check for YAML frontmatter

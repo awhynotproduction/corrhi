@@ -2,16 +2,16 @@
 
 A portable system for building a personal knowledge graph with an AI coworker that learns, remembers, and works between sessions.
 
-**Claude Code + Obsidian. Two brains, one graph.**
+**Your AI agent + Obsidian. Two brains, one graph.**
 
 ```
 ┌─────────────────────────────────────────────────┐
 │                  Your Vault                      │
 │                                                  │
 │  ┌──────────────┐    ┌────────────────────────┐  │
-│  │  Your Brain   │    │   Claude's Brain       │  │
+│  │  Your Brain   │    │   Agent Brain          │  │
 │  │               │    │                        │  │
-│  │  notes/       │◄──►│  _claude/              │  │
+│  │  notes/       │◄──►│  _agent/               │  │
 │  │  projects/    │    │    goals.md            │  │
 │  │  sources/     │    │    [you]-lens.md       │  │
 │  │  people/      │    │    methodology.md      │  │
@@ -39,7 +39,7 @@ The name comes from **mycorrhiza** — fungal networks that connect tree roots u
 | **Built for** | Non-programmers | Developers |
 | **Memory** | Correction-driven — Claude learns from every edit you make | Static instructions that never evolve |
 | **Session continuity** | Open/close protocols, goals.md handoff, multi-session persistence | Every session starts cold |
-| **Human + AI boundary** | Clear: your brain (vault) + Claude's brain (_claude/), one graph | AI writes directly into your notes |
+| **Human + AI boundary** | Clear: your brain (vault) + agent brain (_agent/), one graph | AI writes directly into your notes |
 | **Processing framework** | DRC: Discover, Reflect, Create — a methodology, not just folders | Folders with no workflow |
 | **Autonomy** | Scheduled background work (reweave, health checks, research) | Manual only |
 | **Provenance** | Every behavioral rule traces to a real correction over months of use | Designed in a weekend |
@@ -81,10 +81,10 @@ Already have Claude Code running? Just say: *"Set up corrhi for me — clone fro
 Pick the level that fits. You can always upgrade later.
 
 ### Tier 1: Knowledge System (10 min)
-Vault structure, templates, CLAUDE.md instructions, DRC methodology. A working second brain with AI-powered organization.
+Vault structure, templates, AGENTS.md instructions, DRC methodology. A working second brain with AI-powered organization.
 
 ### Tier 2: Memory + Learning (20 min)
-Everything in Tier 1, plus: Claude's brain directory, correction-driven learning loop, hooks (auto-commit, YAML validation, session start/stop), and all skills (/review, /open-session, /close-session, /reweave, /vault-health, /tune-claude, /process-inbox).
+Everything in Tier 1, plus: agent brain directory, correction-driven learning loop, hooks (auto-commit, YAML validation, session start/stop), and all skills (/review, /open-session, /close-session, /reweave, /tune-claude, /process-inbox).
 
 ### Tier 3: Full Autonomy (30 min)
 Everything in Tier 2, plus: autonomous background execution engine (reweave, health checks, research between sessions), credit pacing, remote access via claude.ai/code from your phone. Requires Claude Max plan.

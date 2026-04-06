@@ -21,7 +21,7 @@ Process unprocessed capture items through the Discover phase of DRC.
 4. Report: "Processed X captures. Y proposals in _review/. Z items auto-filed."
 
 ## Rules
-- Read `_claude/methodology.md` for the full DRC methodology before processing
+- Read `_agent/methodology.md` for the full DRC methodology before processing
 - Rephrase into the user's voice — never verbatim paste
 - One idea per note (atomic)
 - Add YAML frontmatter per template conventions

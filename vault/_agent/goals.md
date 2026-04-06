@@ -1,6 +1,6 @@
 ---
 updated:
-type: claude-brain
+type: agent-brain
 ---
 
 # Goals & Session Continuity

@@ -5,8 +5,8 @@ This is the onboarding flow when a user pastes `IDEA.md` into a fresh Claude Cod
 ## When to run this
 
 - The user pastes `IDEA.md` (or references it) and asks to "set this up" / "build this" / "do this for me"
-- There is no `_claude/` folder and no `goals.md` in the working directory
-- There is no Corrhi-style `CLAUDE.md` at any recognizable root
+- There is no `_agent/` folder and no `goals.md` in the working directory
+- There is no Corrhi-style `AGENTS.md` at any recognizable root
 
 If any of those exist, route to the regular `/onboard` flow in `SKILL.md` — the user already has infrastructure and just needs the light seeding interview.
 
@@ -86,7 +86,7 @@ If they say pull it in → run the branch below that matches their source. **All
 
 1. **Transform, don't copy.** Migration is structural, not clerical. A flat Notion task list does not become a flat vault list — it becomes `## Next Actions` (3-5) + `## Backlog` (the rest). A Milanote board doesn't become one markdown file — it becomes a project file plus atomic notes plus source links. The whole point of migrating is that the new structure teaches something the old one didn't.
 2. **Dedup before proposing.** If the interview already surfaced a project/person/source, don't create a duplicate — merge into the existing seed.
-3. **Throttle to ~10 proposals per batch.** Never dump 200 proposals into `_review/` at once. The review queue is the bottleneck; overwhelm kills the habit. Stage the rest in `_claude/migration-queue/` and release in batches as the user clears review.
+3. **Throttle to ~10 proposals per batch.** Never dump 200 proposals into `_review/` at once. The review queue is the bottleneck; overwhelm kills the habit. Stage the rest in `_agent/migration-queue/` and release in batches as the user clears review.
 
 ### Branch A — Notion
 
@@ -97,7 +97,7 @@ User provides a Notion workspace export (.zip of markdown + CSVs).
 3. For databases (CSVs): classify the database purpose — tasks? contacts? reading list? — and map to the corresponding vault folder (projects, people, lists/reading.md, etc.).
 4. **Flat-to-two-tier transformation:** Any task list with 10+ items gets collapsed into `## Next Actions` (curate top 3-5 from context clues like "urgent," "this week," recent edit dates) + `## Backlog` (the rest). This is non-negotiable. See `feedback_notion_overwhelm.md` for why — flat lists paralyze.
 5. Dedup: match titles against interview Q2/Q3 answers before creating anything new.
-6. First batch: propose the top 10 most substantive items. Rest stages in `_claude/migration-queue/notion/`.
+6. First batch: propose the top 10 most substantive items. Rest stages in `_agent/migration-queue/notion/`.
 7. Tell the user: "I pulled your Notion export. 10 proposals are in `_review/` for you to walk through. Another [N] are staged — I'll release them in batches of 10 as you clear review. Don't try to do it all in one sitting."
 
 ### Branch B — Apple Notes (macOS only)
@@ -109,16 +109,16 @@ Reference the existing `/iphone-notes` command pattern (see `~/.claude/commands/
 3. Size-based chunking: notes >20k chars stage for Opus processing (one at a time, later); notes <20k atomic-extract in this session.
 4. Images: thumbnails are available at `Previews/` paths; full-res requires Notes.app to be open — tell the user to keep Notes open during this phase.
 5. Dedup: match titles against interview answers.
-6. First batch: 10 proposals, rest staged in `_claude/migration-queue/apple-notes/`.
+6. First batch: 10 proposals, rest staged in `_agent/migration-queue/apple-notes/`.
 7. Requires auto-approve permission mode (not "don't ask").
 
 ### Branch C — Existing Obsidian vault or markdown folder
 
 Easiest case — content is already in markdown.
 
-1. Ask: "Do you want me to adopt your existing vault in place (add `_claude/`, `_review/`, and the Corrhi schema on top of your current folders) or restructure into the Corrhi layout?" Default to **adopt in place** unless they explicitly want a reorg. Don't rewrite folder structures without permission.
+1. Ask: "Do you want me to adopt your existing vault in place (add `_agent/`, `_review/`, and the Corrhi schema on top of your current folders) or restructure into the Corrhi layout?" Default to **adopt in place** unless they explicitly want a reorg. Don't rewrite folder structures without permission.
 2. Read the existing YAML frontmatter (if any). If notes have no frontmatter, add minimal frontmatter in a single pass and log every file touched.
-3. Build `_claude/` alongside existing folders. Seed the lens file from Q1/Q6 plus any `about.md` / `self.md` / `readme.md` that already exists in the vault.
+3. Build `_agent/` alongside existing folders. Seed the lens file from Q1/Q6 plus any `about.md` / `self.md` / `readme.md` that already exists in the vault.
 4. Scan existing notes for orphans, broken links, duplicates — but don't fix them. Instead, propose a first `/reweave` pass as the user's first real task after onboarding.
 5. No migration queue needed — the content is already in place.
 
@@ -128,11 +128,11 @@ Easiest case — content is already in markdown.
 2. Glob for markdown, text, and common document formats (`.md`, `.txt`, `.rtf`, `.docx`). Flag `.docx` as needing conversion — offer pandoc if available, otherwise skip and queue.
 3. Sample 10 random files and classify to get a sense of the content distribution. Report back: "Looks like about 40% brain dumps, 30% project notes, 20% source annotations, 10% junk. Sound right?"
 4. Once the user confirms the distribution, run classification over the full set into five buckets: atomic-note candidates, project files, source notes, person mentions, debris.
-5. Propose top 10 to `_review/`, stage the rest in `_claude/migration-queue/scattered/`.
+5. Propose top 10 to `_review/`, stage the rest in `_agent/migration-queue/scattered/`.
 
 ### After any branch runs
 
-- Update `_claude/goals.md` with: migration source, total items imported, items staged in queue, items in first review batch.
+- Update `_agent/goals.md` with: migration source, total items imported, items staged in queue, items in first review batch.
 - Tell the user explicitly: "Migration is not done when this session ends. The staged queue releases in batches as you clear review. Budget 10-15 minutes a day for review during the migration period — usually 1-2 weeks, not one session."
 - Proceed to Phase 3 (scaffold), but skip the folder creation steps that migration already handled.
 
@@ -156,21 +156,21 @@ Build the minimum viable structure. Do NOT populate content yet. The structure i
    - `writing/`
    - `templates/`
    - `_review/`
-   - `_claude/` with subfolders `memory/`, `research/`, `archive/`
+   - `_agent/` with subfolders `memory/`, `research/`, `archive/`
 
    Drop a one-line `README.md` in each explaining its purpose in plain language. This keeps the empty vault legible before any note exists.
 
-3. **Write the root `CLAUDE.md`** — adapt from IDEA.md's premise, methodology, autonomy boundary, and session rhythm. Under 100 lines. Reference the lens file at `_claude/<firstname>-lens.md`.
+3. **Write the root `AGENTS.md`** — adapt from IDEA.md's premise, methodology, autonomy boundary, and session rhythm. Under 100 lines. Reference the lens file at `_agent/<firstname>-lens.md`.
 
-4. **Seed the lens file** at `_claude/<firstname>-lens.md` using Q1 and Q6 answers:
+4. **Seed the lens file** at `_agent/<firstname>-lens.md` using Q1 and Q6 answers:
    - *Preferences and identity* — what they make, medium, how they described themselves
    - *Communication style* — direct vs options, concise vs detailed, pushback vs support
    - *Prior-AI frustrations* — anything they named in Q6
    - Mark the file as a seed that will grow through `/tune-claude` after the first 10 correction diffs accumulate
 
-5. **Write `_claude/methodology.md`** — the full DRC loop and autonomy rules, adapted from IDEA.md's longer-form content.
+5. **Write `_agent/methodology.md`** — the full DRC loop and autonomy rules, adapted from IDEA.md's longer-form content.
 
-6. **Create `_claude/goals.md`** with three sections:
+6. **Create `_agent/goals.md`** with three sections:
    - **Pick up next session:** "First real capture — run the pipeline end-to-end"
    - **Projects (seeded from Q2):** one line per project they named
    - **People (seeded from Q3):** one line per person they named
@@ -185,7 +185,7 @@ Put the scaffold decision into `_review/` as the user's first proposal. This tea
 
 Create `_review/scaffold-proposal.md` with:
 - YAML frontmatter: `proposal_type: scaffold`, `created: <today>`, `status: pending`
-- `## What I built` — list folders, CLAUDE.md, lens seed, goals seed
+- `## What I built` — list folders, AGENTS.md, lens seed, goals seed
 - `## Things I assumed — please correct` — every default picked without strong signal: folder names, vault path, lens wording, anything guessed
 - `## How to review` — "Open this in your editor, edit anything that feels wrong, either approve at the top (`status: approved`) or leave notes in `## Feedback` and I'll revise."
 
@@ -221,7 +221,7 @@ When the first capture → review cycle is complete:
 >
 > The system gets sharper the more you correct me. See you tomorrow.
 
-Update `_claude/goals.md` with a session summary and set "Pick up next session" to whatever the user signaled next. Exit.
+Update `_agent/goals.md` with a session summary and set "Pick up next session" to whatever the user signaled next. Exit.
 
 ---
 
@@ -234,7 +234,7 @@ Update `_claude/goals.md` with a session summary and set "Pick up next session" 
 ## Hard rules for the agent running this
 
 - **Never invent answers the user didn't give.** The lens file must be signal-sourced, not hallucinated. If a section has no signal, leave it empty with a comment like `<!-- grows through /tune-claude -->`.
-- **Never write content into the user's notes folders during onboarding.** Only folder structure, READMEs, the root `CLAUDE.md`, the `_claude/` brain files, and the review queue.
+- **Never write content into the user's notes folders during onboarding.** Only folder structure, READMEs, the root `AGENTS.md`, the `_agent/` brain files, and the review queue.
 - **Never skip the first-proposal step.** Even if the scaffold seems obvious. The review discipline has to be felt, not read about.
 - **Never promise persistence beyond what the system delivers.** The agent forgets between sessions; disk is the source of truth. Say so explicitly if the user seems to expect more.
 - **Never mass-create project, person, or source files from Q2/Q3 answers.** Those go into `goals.md` as seeds only. Real files get created later, through the review queue, as the user actually works.

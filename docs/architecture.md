@@ -10,13 +10,13 @@ corrhi is three layers:
 
 ## Memory Hierarchy
 
-Claude's memory has three tiers, in order of reliability:
+The agent's memory has three tiers, in order of reliability:
 
 ```
-Tier 1: CLAUDE.md (loaded every session, highest compliance)
+Tier 1: AGENTS.md (loaded every session, highest compliance)
   Standing behavioral rules, tool routing, autonomy protocol
 
-Tier 2: Memory files (_claude/memory/, searchable)
+Tier 2: Memory files (_agent/memory/, searchable)
   feedback_* — behavioral corrections
   user_* — identity, preferences
   project_* — project context
@@ -26,7 +26,7 @@ Tier 3: approval-diffs.md (raw correction log)
   Input to tune-claude, no direct behavioral effect until synthesized
 ```
 
-Corrections flow upward: diffs → memory files → CLAUDE.md rules.
+Corrections flow upward: diffs → memory files → AGENTS.md rules.
 
 ## Session Architecture
 
@@ -91,7 +91,7 @@ autonomous-work.sh runs guards:
   1. No concurrent session? (lockfile)
   2. Internet available?
   3. claude CLI exists?
-  4. Tasks due in claude-todos.md?
+  4. Tasks due in agent-todos.md?
   5. Credit budget available? (5hr window + dynamic weekly threshold)
   ↓
 If all pass: burst execution begins
@@ -116,7 +116,7 @@ The 5-hour rolling window is the primary governor. Polls are cheap (just a curl 
 - **Weekly (dynamic):** Scales with time remaining: `60 + 39 * (1 - hours_left / 168)`. Fresh week = 60%. Last day = ~94%. Last 4 hours = ~99%.
 - **Sonnet:** Block if > 85%.
 
-**Modes** (set in claude-todos.md frontmatter `mode:`):
+**Modes** (set in agent-todos.md frontmatter `mode:`):
 - `normal` — 5hr + dynamic weekly governor
 - `vacation` — use up to 95%
 - `light` — minimal autonomous work
@@ -125,19 +125,19 @@ The 5-hour rolling window is the primary governor. Polls are cheap (just a curl 
 
 | Location | Owner | Purpose |
 |----------|-------|---------|
-| `~/CLAUDE.md` | System | Standing behavioral rules |
+| `~/AGENTS.md` | System | Standing behavioral rules |
 | `~/.claude/hooks/` | System | Event-driven integrity checks |
 | `~/.claude/skills/` | System | Workflow playbooks |
 | `~/.claude/MEMORY.md` | System | Bootstrap identity (auto-loaded) |
-| `vault/` (except _claude/) | User | User's knowledge graph |
-| `vault/_claude/` | Claude | Claude's brain (goals, lens, memory, research) |
+| `vault/` (except _agent/) | User | User's knowledge graph |
+| `vault/_agent/` | Agent | Agent brain (goals, lens, memory, research) |
 | `vault/_review/` | Shared | Proposal bridge between brains |
 
 ## Weekly Calendar Ritual
 
 Every Monday at 9:30am, a recurring calendar event triggers a review session:
 
-1. **Retrospective** — Compare previous week's scheduled work blocks against what actually happened. Log in `_claude/calendar-log.md`.
+1. **Retrospective** — Compare previous week's scheduled work blocks against what actually happened. Log in `_agent/calendar-log.md`.
 2. **Planning** — Read goals.md, project deadlines, existing calendar. Propose work blocks for the week ahead.
 3. **Pattern recognition** — Over time, the log reveals which block types have the best follow-through, what time slots get protected, and how to schedule smarter.
 
@@ -165,6 +165,5 @@ Skills are markdown playbooks in `~/.claude/skills/[name]/SKILL.md`. They tell C
 | /close-session | Yes | Session end protocol |
 | /review | Yes | Proposal review workflow |
 | process-inbox | No | DRC pipeline on captures |
-| reweave | No | Backward pass — connections, staleness |
+| reweave | No | Backward pass — connections, staleness, health checks |
 | tune-claude | No | Synthesize corrections into lens |
-| vault-health | No | System health dashboard |

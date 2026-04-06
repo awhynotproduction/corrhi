@@ -1,11 +1,11 @@
 ---
 updated:
-type: claude-brain
+type: agent-brain
 ---
 
 # {{USER_NAME}} — Decision Lens
 
-Claude's model of how {{USER_NAME}} thinks, decides, and works. Updated through corrections and feedback synthesis.
+Agent's model of how {{USER_NAME}} thinks, decides, and works. Updated through corrections and feedback synthesis.
 
 ## How to Use This File
 This file evolves. When the user corrects your approach, log it to `approval-diffs.md`. When enough corrections accumulate (10+), run `/tune-claude` to synthesize patterns here.
