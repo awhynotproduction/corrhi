@@ -86,6 +86,18 @@ type: proposal
 - Use aliases when natural: `[[notes/concept-name|the concept]]`
 - Takeaways and sparked sections should be in the user's voice, not AI-generated summaries
 
+### Typed Relationships (optional)
+For intellectually meaningful connections, add a `@type` to wiki-link display text:
+- `@sparks` — origin/genesis (what triggered this idea)
+- `@instantiates` — theory → practice, abstract → concrete
+- `@frames` — conceptual container, philosophical anchor
+- `@extends` — builds on, adds complexity, logical consequence
+- `@tensions` — both sides valid, unresolved friction
+
+Example: `[[notes/concept|@frames]]` or `[[sources/film-name|Film Name @sparks]]`
+
+Not every link needs a type — only use for connections where the relationship isn't obvious from context. A project linking to its map is obviously "part of." Types are for the conceptual graph.
+
 ## Search & Retrieval
 | Need | Tool |
 |------|------|

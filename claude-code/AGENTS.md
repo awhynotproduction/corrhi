@@ -43,12 +43,20 @@ When writing plans:
 3. Read `_agent/[user]-lens.md` decision patterns if doing substantial work.
 
 ### Iteration (Ralph Loop)
-For multi-step tasks:
-1. Define acceptance criteria BEFORE starting.
-2. After completing a step, verify against criteria.
-3. If fail: log failure, adjust approach, retry (max 3 attempts with different approaches).
-4. Only ask the user for help after 3 failed attempts.
-5. For multi-session tasks: persist state in `_agent/archive/TASK-NAME.md` (goal, steps with status, acceptance criteria, progress log). Next session reads the file and resumes from first incomplete step.
+Full iterative self-review protocol. Quality comes from multiple passes, not hoping the first draft is right.
+
+1. **Define done** — acceptance criteria BEFORE starting.
+2. **First pass** — do the work.
+3. **Self-review as the user** — read `_agent/[user]-lens.md` correction patterns + verification rules. Ask: "what would the user push back on?" Apply their decision patterns, not yours.
+4. **Fix** what the user would critique.
+5. **Second review** — different angle (missed connections, tone, unstated assumptions, things that feel AI-generated).
+6. **Fix again.**
+7. **Present** — flag remaining uncertainty honestly. Don't hide what you're unsure about.
+8. **Log gaps** — anything the user corrects goes to `_agent/approval-diffs.md`.
+
+**Retry on failure:** If a step fails (tool error, bad output), log the failure, adjust approach, retry (max 3 with different approaches). Only ask the user after 3 failed attempts.
+
+**Multi-session tasks:** Persist state in `_agent/tasks/TASK-NAME.md` (goal, steps with status, acceptance criteria, progress log). Next session reads the file and resumes from first incomplete step.
 
 ### Compaction Protection + Tier Assessment
 When the user corrects your approach or gives significant feedback, assess tier IMMEDIATELY:
