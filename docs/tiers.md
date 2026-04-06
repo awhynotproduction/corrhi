@@ -26,8 +26,9 @@
 - `MEMORY.md` bootstrap (Claude knows who you are every session)
 - `[you]-lens.md` (agent's model of how you think — evolves through corrections)
 - `approval-diffs.md` (correction log)
-- 7 hooks (trust-the-file, session start/stop, YAML validation, auto-commit, image resize)
+- 9 hooks (trust-the-file, session start/stop, YAML validation, auto-commit x2, image resize, system-config reminder, SoT sync reminder)
 - 7 skills (/onboard, /open-session, /close-session, /review, /process-inbox, /reweave, /tune-claude)
+- `~/.agents/skills/` symlink for cross-agent discovery
 - Shell alias `c` for quick session start
 - `CORRHI_VAULT` environment variable
 
@@ -41,7 +42,7 @@
 
 **Adds:**
 - Autonomous execution engine (polls every 30 minutes, credit-window-aligned bursts)
-- Scheduled tasks: reweave (weekly), tune-claude (on condition), process-inbox (daily)
+- Scheduled tasks: reweave (monthly — consolidated: health + connections + graph analysis + memory hygiene), tune-claude (on condition), process-inbox (daily)
 - Credit pacing (5hr window governor + dynamic weekly threshold that scales with time remaining)
 - Persistent remote-control session (access from phone via claude.ai/code)
 - Power management (prevents Mac from sleeping on AC power)

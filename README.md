@@ -101,7 +101,7 @@ Everything in Tier 2, plus: autonomous background execution engine (reweave, hea
 
 **End of day.** Type `/close-session`. Claude saves state, commits changes, logs what happened.
 
-**Between sessions.** Claude runs maintenance — finding new connections, checking vault health, processing captures, preparing research. You see the results next morning.
+**Between sessions.** The agent runs maintenance — finding new connections, checking vault health, running graph analysis, processing captures. You see the results next morning.
 
 ## Philosophy: Discover, Reflect, Create
 
@@ -118,11 +118,10 @@ The system is a creative metabolism: discover = ingest, reflect = digest, create
 ## Documentation
 
 - [Quick Start Guide](docs/quickstart.md) — Visual walkthrough for non-programmers
-- [Core Concepts](docs/concepts.md) — DRC, two-brains architecture, learning loop
 - [Adoption Tiers](docs/tiers.md) — Detailed guide for each tier
 - [Daily Rhythm](docs/daily-rhythm.md) — What a full day looks like
-- [Architecture](docs/architecture.md) — System design deep dive
 - [Troubleshooting](docs/troubleshooting.md) — Common issues and solutions
+- [IDEA.md](IDEA.md) — The pattern file. Paste into any agent to bootstrap a new vault from scratch.
 
 ## Contributing
 

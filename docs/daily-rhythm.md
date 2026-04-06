@@ -58,21 +58,11 @@ Claude:
 4. Commits and pushes vault changes
 5. Reports: what happened, what's next
 
-## Monday Morning — Weekly Calendar Review
-
-A recurring 30-minute session where Claude and you plan the week:
-
-1. **Last week's scorecard** — The agent pulls up last week's scheduled blocks and asks what actually happened. Results logged in `_agent/calendar-log.md`.
-2. **This week's blocks** — Based on goals.md, project deadlines, and what's already on the calendar, Claude proposes and creates work blocks (studio time, Claude sessions, planning sessions with collaborators).
-3. **Patterns over time** — The log accumulates data: which block types you complete, which time slots work, what tends to slip. Claude uses this to schedule smarter each week.
-
-The calendar becomes a living document that reflects your real priorities, not aspirational time-blocking.
-
 ## Between Sessions (Tier 3)
 
 Every 30 minutes, the autonomous engine polls for available credits and runs burst work when the 5hr window has capacity:
-- **Reweave** (weekly) — finds new connections between notes, flags stale content, checks vault health
+- **Reweave** (monthly) — comprehensive vault maintenance: connection discovery, health stats, graph analysis, memory hygiene. Flags only — never auto-deletes.
 - **Process inbox** (daily) — triages any unprocessed captures
-- **Tune claude** (when 10+ corrections accumulate) — synthesizes learnings
+- **Tune agent** (when 10+ corrections accumulate) — synthesizes learnings into your lens file
 
 You see the results in your next `/open-session` check-in.
