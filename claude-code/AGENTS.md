@@ -43,16 +43,19 @@ When writing plans:
 3. Read `_agent/[user]-lens.md` decision patterns if doing substantial work.
 
 ### Iteration (Ralph Loop)
-Full iterative self-review protocol. Quality comes from multiple passes, not hoping the first draft is right.
+Two modes: **mechanically enforced** (`/ralph-loop` — Stop hook blocks exit and re-injects prompt) and **inline** (self-review within a normal turn). For substantial tasks, use the enforced loop. For smaller tasks, run the inline protocol.
 
-1. **Define done** — acceptance criteria BEFORE starting.
-2. **First pass** — do the work.
-3. **Self-review as the user** — read `_agent/[user]-lens.md` correction patterns + verification rules. Ask: "what would the user push back on?" Apply their decision patterns, not yours.
-4. **Fix** what the user would critique.
-5. **Second review** — different angle (missed connections, tone, unstated assumptions, things that feel AI-generated).
-6. **Fix again.**
-7. **Present** — flag remaining uncertainty honestly. Don't hide what you're unsure about.
-8. **Log gaps** — anything the user corrects goes to `_agent/approval-diffs.md`.
+**Enforced loop** (plugin: `~/.claude/plugins/ralph-wiggum/`):
+- `/ralph-loop "task description" --max-iterations N` — forces N passes with Stop hook enforcement
+- `/cancel-ralph` — kills the loop
+- **The task prompt IS the quality criteria.** Write prompts that describe what "done well" looks like. The loop's value is forcing you to face the same prompt again after seeing what you actually produced.
+
+**Each pass after the first:**
+1. **Look at what you produced.** Open the files. Read the output. Don't summarize from memory — go look.
+2. **Re-read the original prompt.** Did you do what it asked? All of it? The parts you skipped or half-finished are the priority.
+3. **Fix what's wrong.** Don't describe improvements — make them. Real work, not review comments.
+
+**If the user still corrects after the loop:** the gap between the loop's output and their feedback is the most valuable learning. Log to `_agent/approval-diffs.md`.
 
 **Retry on failure:** If a step fails (tool error, bad output), log the failure, adjust approach, retry (max 3 with different approaches). Only ask the user after 3 failed attempts.
 
