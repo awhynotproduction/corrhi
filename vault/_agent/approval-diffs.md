@@ -15,3 +15,5 @@ When the user corrects Claude's approach or edits a proposal, log the correction
 ```
 
 ---
+
+### 2026-04-09 — No corrections (trust dialog fix session)
