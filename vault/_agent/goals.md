@@ -6,7 +6,7 @@ type: agent-brain
 # Goals & Session Continuity
 
 ## Last Session
-2026-04-09 — Fixed Claude Code trust dialog prompting on every launch. Found `hasTrustDialogAccepted: false` in `~/.claude/.claude.json` for the `/Users/awhynotproduction` project entry. Flipped to `true`. Should eliminate the prompt going forward.
+2026-04-16 — Processed 31 Justin Bieber Coachella 2026 live MP3s from iCloud Downloads. Sorted in setlist order (numbered 01-31), cropped friend's photo "STANDING ON BUSINESS" to square album art, embedded as cover, set album title, stripped "(Live at Coachella 2026)" from all titles, added featured artist credits for 5 tracks with live guests (Kid LAROI, Dijon, Tems, Wizkid, Mk.gee). Installed ffmpeg via brew.
 
 ## Pick Up Next Session
 
