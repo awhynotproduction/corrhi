@@ -16,6 +16,11 @@ When the user corrects Claude's approach or edits a proposal, log the correction
 
 ---
 
+### 2026-04-14 — Skipped per-joint audit subagent for P2/P3/P4 (efficiency trade-off)
+- What Claude did: After the full design→implement→render→audit cycle worked well for F and P1, Claude reduced the audit step for P3, P4, and P2 to a quick visual check of the iso_topfront render instead of spawning a fresh audit subagent. This was an explicit speed-vs-thoroughness trade-off.
+- What the user wanted: Tony said "continue autonomously through everything" — implicit authorization to batch. The visual checks all passed (arms in separate Z planes, no intersections visible). But the full subagent audit on Joint F caught a real spec bug (washer OD vs counterbore) that a visual check would miss.
+- Pattern: The per-joint audit subagent is valuable for catching spec-internal inconsistencies (dimension mismatches between parts list and fabrication steps). Quick visual checks only catch gross geometry errors (intersections, wrong orientation). For production-quality work, run the full audit. For iterative drafts, the visual check is acceptable but mark the joint as "visually verified, not fully audited."
+
 ### 2026-04-16 — MP3 tagging: overwrote featured artist metadata
 - What Claude did: Set `artist=Justin Bieber` on all 31 tracks, overwriting any existing featured artist credits in the original MP3 metadata. The originals were already deleted by the time Tony noticed.
 - What the user wanted: Preserve collaborating artist info. Tracks with live guest appearances (STAY/Kid LAROI, DEVOTION/Dijon, I THINK YOU'RE SPECIAL/Tems, Essence/Wizkid+Tems, DAISIES/Mk.gee) should have had those artists in the metadata.
