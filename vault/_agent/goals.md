@@ -6,7 +6,7 @@ type: agent-brain
 # Goals & Session Continuity
 
 ## Last Session
-2026-04-16 — **Video downloads (Coachella sets).** Quick utility session. Downloaded Bilibili video (¥ØU$UK€ ¥UK1MAT$U Live @ Coachella 2026, 2 parts, 1080p, ~988MB total) and YouTube video (BUNT Coachella set, 1080p, 320MB). Used yt-dlp, already installed via Homebrew. All files in ~/Downloads/.
+2026-04-16 — **MKV conversion + disk cleanup.** Converted David Byrne Coachella MKV (VP9→H.265 via VideoToolbox) to MP4 for QuickTime playback. Then deep disk cleanup: found ~44 GB duplicates between local and My Passport external drive (drone footage, Coachella videos, Insta360, hat shoots, film photos). Tony copied unsynced folders to external, deleted local copies. Cleared ~10 GB of caches (npm 4.6G, Spotify 1.9G, Playwright 1G, pip 645M, Homebrew 450M, node_modules 1.1G). Also scanned for local-to-local dupes (4.7 GB — aln vital WIP/Assets overlap, COACH ULT in Downloads already in Music, duplicate .venvs). Tony decided those were too small/risky to touch. Total freed: ~35+ GB.
 
 ## Pick Up Next Session
 - **PRIORITY: Generate consolidated shopping list** — every part, every quantity, organized by vendor, so Tony can order immediately
@@ -42,6 +42,7 @@ type: agent-brain
 - Session: JB Coachella MP3 processing
 - Session: 1 to Life component-by-component review with Tony. Walked through F, P1, P2, pen system, track. Tony flagged pen mechanism as under-developed. Exhibition crunch — need to order parts ASAP.
 - Session: Video downloads — Bilibili (Yukimatsu Coachella) + YouTube (BUNT Coachella), yt-dlp 1080p
+- Session: MKV→MP4 conversion (David Byrne Coachella), disk cleanup ~35+ GB freed (duplicates + caches)
 
 ## 2026-04-14
 - Session: Completed Joint P1, P2, P3, P4 design/implement/render. P3/P4 discovery: 22° Z-joggles required. Updated vault project file with per-joint summary table.

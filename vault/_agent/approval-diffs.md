@@ -16,6 +16,11 @@ When the user corrects Claude's approach or edits a proposal, log the correction
 
 ---
 
+### 2026-04-16 — Stream copy doesn't mean playable
+- What Claude did: First attempt at MKV→MP4 was a stream copy (`-c copy`), which was fast but kept the VP9 codec. QuickTime can't play VP9 in MP4.
+- What the user wanted: A file that actually opens and plays on macOS.
+- Pattern: When converting video for macOS playback, always check if the source codec (VP9, AV1) needs re-encoding to H.264/H.265. Stream copy is only valid when the codec is already QuickTime-compatible. Default to `hevc_videotoolbox` for hardware-accelerated re-encode.
+
 ### 2026-04-16 — Tony doesn't trust the build plans because 3D models don't all make sense
 - What Claude did: Presented a summary of "what's done" as if everything was ready to order. Tony pushed back: "i don't trust the build plans because the 3D models don't all make sense."
 - What the user wanted: Walk through each component ONE AT A TIME, opening the 3D model as you go, so Tony can visually verify and understand before committing to ordering parts. Don't batch-present status — let Tony inspect and ask questions.

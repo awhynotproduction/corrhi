@@ -45,10 +45,11 @@ When writing plans:
 ### Iteration (Ralph Loop)
 Two modes: **mechanically enforced** (`/ralph-loop` — Stop hook blocks exit and re-injects prompt) and **inline** (self-review within a normal turn). For substantial tasks, use the enforced loop. For smaller tasks, run the inline protocol.
 
-**Enforced loop** (plugin: `~/.claude/plugins/ralph-wiggum/`):
+**Enforced loop** (plugin: `~/.claude/plugins/ralph-wiggum/`, commands: `~/.claude/commands/ralph-loop.md` + `cancel-ralph.md`):
 - `/ralph-loop "task description" --max-iterations N` — forces N passes with Stop hook enforcement
 - `/cancel-ralph` — kills the loop
 - **The task prompt IS the quality criteria.** Write prompts that describe what "done well" looks like. The loop's value is forcing you to face the same prompt again after seeing what you actually produced.
+- **Multi-account:** If using claude-pool, the plugin and commands must be symlinked into every account's config dir. Canonical lives in `~/.claude/`; other dirs get `ln -s`. Commands use `$HOME` in path references so they resolve regardless of active account.
 
 **Each pass after the first:**
 1. **Look at what you produced.** Open the files. Read the output. Don't summarize from memory — go look.
