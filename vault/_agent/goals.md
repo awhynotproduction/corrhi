@@ -6,26 +6,30 @@ type: agent-brain
 # Goals & Session Continuity
 
 ## Last Session
-2026-04-09 to 2026-04-14 — **1 to Life (pantograph) engineering marathon.** Traced session history to find the CadQuery origin story (Mar 18 research → Apr 6 first use → Apr 7 first good track model). Discovered the "spec first, then CadQuery as transcription" process was the only thing that produced a verified 3D model. Created fresh project "038 1 to Life" with clean folder structure, migrated only verified assets from old 036 pantograph. Wrote fabrication engineering domain memory. Built Joint F (wall mount) through full design→implement→render→audit cycle with subagents. Caught and fixed: lag bolt sweep clearance, thread vs plate thickness mismatch, washer OD vs counterbore Ø inconsistency. Then attempted batch build of all remaining components — produced a 62-solid master assembly that Tony inspected and found wood-intersection errors at P1/P2 joints. Scrapped batch approach, adopted per-joint design with fresh-context subagents. Completed all 5 joints (F, P1, P2, P3, P4) individually with renders. Key discovery: P3/P4 bent fork plates require 22° Z-joggles, not 90° bends (geometrically impossible for 0.475" offset with 3/8" plate). Three different shoulder bolt lengths needed across joints (0.800", 1.500", 1.750").
+2026-04-16 — **1 to Life component review with Tony.** Tony picking up after days away, uncomfortable with model quality, wants to understand each component before ordering parts. Walked through: (1) Joint F wall mount — explained mechanism (bushings rotate with arm on stationary bolt), noted bushing overlap is cosmetic not structural. (2) Joint P1 apex — showed fork-and-tang fix that eliminated wood intersection. (3) Joint P2 tracer — identical to P1 in Plane 2. (4) Pen system — Tony asked about detail, I was honest: it's from the batch round, model is rough placeholders only, needs full treatment or shop prototype. (5) Track assembly — opened the verified model. (6) Tony requested reopening wall mount for closer look, then closed session. **Exhibition is ~2.5 weeks away (due May 2).** Tony still needs to order parts and start fabrication.
 
 ## Pick Up Next Session
-- Build a CLEAN master assembly combining all 5 verified joint STEPs + track + counterweights
-- Verify McMaster part numbers (need McMaster login — Tony needs to authenticate agent-browser first)
+- **PRIORITY: Generate consolidated shopping list** — every part, every quantity, organized by vendor, so Tony can order immediately
+- Pen mechanism: either give it the full design treatment or document it as "prototype in shop"
+- Build CLEAN master assembly from verified joint STEPs
+- McMaster part verification (still need login)
 - Source wood from Valente Lumber
-- Order track parts (safe-to-order BOM in project file)
 - Deflection check on 108" arms
 
 ## Active Priorities
 
 ### User Handles (Claude supports)
+- **ORDER PARTS** — exhibition is May 2, shipping time is the bottleneck
 - McMaster authentication for real part verification
 - Stud finder check at (94.5", 19") before wall mount install
 - Wood species decision (hard maple vs Douglas fir)
 - Weight aesthetic decision (brass bar vs other)
+- David Gersten 1:1 review today
 
 ### Claude Handles (User reviews/approves)
+- Consolidated shopping list across all BOMs
+- Pen mechanism detailed design (if Tony wants it modeled vs shop prototype)
 - Master assembly rebuild from verified joints
-- Per-joint BOM consolidation with real McMaster PNs
 
 ### Parked
 
@@ -35,7 +39,8 @@ type: agent-brain
 ---
 
 ## 2026-04-16
-- Session: Processed 31 Justin Bieber Coachella 2026 live MP3s — setlist order, album art, tags, featured artists. Installed ffmpeg.
+- Session: JB Coachella MP3 processing
+- Session: 1 to Life component-by-component review with Tony. Walked through F, P1, P2, pen system, track. Tony flagged pen mechanism as under-developed. Exhibition crunch — need to order parts ASAP.
 
 ## 2026-04-14
 - Session: Completed Joint P1, P2, P3, P4 design/implement/render. P3/P4 discovery: 22° Z-joggles required. Updated vault project file with per-joint summary table.

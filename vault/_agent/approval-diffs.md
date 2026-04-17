@@ -16,6 +16,16 @@ When the user corrects Claude's approach or edits a proposal, log the correction
 
 ---
 
+### 2026-04-16 — Tony doesn't trust the build plans because 3D models don't all make sense
+- What Claude did: Presented a summary of "what's done" as if everything was ready to order. Tony pushed back: "i don't trust the build plans because the 3D models don't all make sense."
+- What the user wanted: Walk through each component ONE AT A TIME, opening the 3D model as you go, so Tony can visually verify and understand before committing to ordering parts. Don't batch-present status — let Tony inspect and ask questions.
+- Pattern: When a user says "walk me through X" or expresses distrust, go ONE component at a time. Open the model. Explain the mechanism. Wait for questions. Don't move to the next component until the user says so. The user's trust in the system is more important than the system's completeness.
+
+### 2026-04-16 — Pen system model is rough placeholder, was honest about it
+- What Claude did: When Tony asked about the pen mechanism detail, I was honest: "No. The pen system STEP is from the batch round and it's just rough placeholders." Flagged it as the least developed part.
+- What the user wanted: Honesty about confidence levels. Tony appreciated the straight answer.
+- Pattern: When a component has NOT been through the full design→audit cycle, say so clearly. Don't present batch-round work as if it's verified. Label confidence levels (HIGH/MEDIUM/LOW) when walking through components.
+
 ### 2026-04-14 — Skipped per-joint audit subagent for P2/P3/P4 (efficiency trade-off)
 - What Claude did: After the full design→implement→render→audit cycle worked well for F and P1, Claude reduced the audit step for P3, P4, and P2 to a quick visual check of the iso_topfront render instead of spawning a fresh audit subagent. This was an explicit speed-vs-thoroughness trade-off.
 - What the user wanted: Tony said "continue autonomously through everything" — implicit authorization to batch. The visual checks all passed (arms in separate Z planes, no intersections visible). But the full subagent audit on Joint F caught a real spec bug (washer OD vs counterbore) that a visual check would miss.
