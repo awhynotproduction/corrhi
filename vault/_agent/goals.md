@@ -6,7 +6,7 @@ type: agent-brain
 # Goals & Session Continuity
 
 ## Last Session
-2026-04-16 — **1 to Life component review with Tony.** Tony picking up after days away, uncomfortable with model quality, wants to understand each component before ordering parts. Walked through: (1) Joint F wall mount — explained mechanism (bushings rotate with arm on stationary bolt), noted bushing overlap is cosmetic not structural. (2) Joint P1 apex — showed fork-and-tang fix that eliminated wood intersection. (3) Joint P2 tracer — identical to P1 in Plane 2. (4) Pen system — Tony asked about detail, I was honest: it's from the batch round, model is rough placeholders only, needs full treatment or shop prototype. (5) Track assembly — opened the verified model. (6) Tony requested reopening wall mount for closer look, then closed session. **Exhibition is ~2.5 weeks away (due May 2).** Tony still needs to order parts and start fabrication.
+2026-04-16 — **Video downloads (Coachella sets).** Quick utility session. Downloaded Bilibili video (¥ØU$UK€ ¥UK1MAT$U Live @ Coachella 2026, 2 parts, 1080p, ~988MB total) and YouTube video (BUNT Coachella set, 1080p, 320MB). Used yt-dlp, already installed via Homebrew. All files in ~/Downloads/.
 
 ## Pick Up Next Session
 - **PRIORITY: Generate consolidated shopping list** — every part, every quantity, organized by vendor, so Tony can order immediately
@@ -41,6 +41,7 @@ type: agent-brain
 ## 2026-04-16
 - Session: JB Coachella MP3 processing
 - Session: 1 to Life component-by-component review with Tony. Walked through F, P1, P2, pen system, track. Tony flagged pen mechanism as under-developed. Exhibition crunch — need to order parts ASAP.
+- Session: Video downloads — Bilibili (Yukimatsu Coachella) + YouTube (BUNT Coachella), yt-dlp 1080p
 
 ## 2026-04-14
 - Session: Completed Joint P1, P2, P3, P4 design/implement/render. P3/P4 discovery: 22° Z-joggles required. Updated vault project file with per-joint summary table.
