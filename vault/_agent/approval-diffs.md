@@ -43,6 +43,21 @@ When the user corrects Claude's approach or edits a proposal, log the correction
 - What the user wanted: Preserve collaborating artist info. Tracks with live guest appearances (STAY/Kid LAROI, DEVOTION/Dijon, I THINK YOU'RE SPECIAL/Tems, Essence/Wizkid+Tems, DAISIES/Mk.gee) should have had those artists in the metadata.
 - Pattern: When batch-modifying media metadata, READ existing tags first and preserve fields you're not intentionally changing. Don't blindly overwrite — merge. Especially for `artist` fields, check if there are featured/collaborating artists before flattening to a single name.
 
+### 2026-04-16 — SwiftBar switch action didn't work (env var not inherited)
+- What Claude did: Wired up the switch action using `param1=switch param2=general param3=$name` but didn't pass the active config dir — the script relied on `CLAUDE_CONFIG_DIR` from the env.
+- What the user wanted: Actions that actually work from SwiftBar (which runs plugins in a clean env with no shell variables set).
+- Pattern: SwiftBar plugin actions never inherit shell env vars. Any config path or account identifier that the action needs must be passed as explicit parameters. Never rely on env vars in SwiftBar bash= actions.
+
+### 2026-04-16 — `terminal=true` in SwiftBar opens a tab, not a window
+- What Claude did: Added `terminal=true` to the launch action, expecting it to open a new Terminal window.
+- What the user wanted: A new Terminal window (not a new tab in the existing window).
+- Pattern: SwiftBar's `terminal=true` opens a new tab in the frontmost window. To force a new window, use a wrapper script that calls `osascript -e 'tell application "Terminal" to do script "..."'` and set `terminal=false` in SwiftBar.
+
+### 2026-04-16 — Added macOS notification, Tony didn't want it
+- What Claude did: Added a `display notification` osascript call for the 20-20-20 confirmation feedback.
+- What the user wanted: No system notifications. Wanted something subtle — in-title flash only.
+- Pattern: Don't add system notifications (or sounds, or alerts) unless explicitly requested. For confirmation feedback in a menu bar plugin, use a `/tmp` flag file with a timestamp and flash the menu bar title for a few seconds on the next refresh cycle.
+
 ### 2026-04-09 — No corrections (trust dialog fix session)
 
 ### 2026-04-09 — Wall mount design: missed lag bolt sweep clearance

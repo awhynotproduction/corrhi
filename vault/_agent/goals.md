@@ -6,7 +6,7 @@ type: agent-brain
 # Goals & Session Continuity
 
 ## Last Session
-2026-04-16 — **MKV conversion + disk cleanup.** Converted David Byrne Coachella MKV (VP9→H.265 via VideoToolbox) to MP4 for QuickTime playback. Then deep disk cleanup: found ~44 GB duplicates between local and My Passport external drive (drone footage, Coachella videos, Insta360, hat shoots, film photos). Tony copied unsynced folders to external, deleted local copies. Cleared ~10 GB of caches (npm 4.6G, Spotify 1.9G, Playwright 1G, pip 645M, Homebrew 450M, node_modules 1.1G). Also scanned for local-to-local dupes (4.7 GB — aln vital WIP/Assets overlap, COACH ULT in Downloads already in Music, duplicate .venvs). Tony decided those were too small/risky to touch. Total freed: ~35+ GB.
+2026-04-16 — **Claude Code infra overhaul + model update.** Full claude-pool login switcher rebuild: per-account backoff files (killed the death-spiral where one failed refresh blocked all accounts), fixed disabled account detection (jq `false // true` bug), fixed `cmd_switch` to pass active config dir explicitly (SwiftBar doesn't inherit `CLAUDE_CONFIG_DIR`), fixed `cmd_seed` to auto-refresh expired tokens before profile validation. Config: disabled tony-personal (free plan) and scalejoy-personal (trial expired), mapped scalejoy-max to `~/.claude-tony-personal`, scalejoy-pro to `~/.claude-scalejoy-pro`. SwiftBar CC plugin: added switch and launch actions per account. Eye-care plugin cleaned down to minimal (timer + did-2020 action + lux line). Replaced macOS notifications with `/tmp` flag file flash (8s confirmation). `ambient-appearance` rewritten to strip all brightness logic — Apple owns it now. New scripts: `claude-launch-window` (osascript window not tab), `eye-care-paper-test` (white fullscreen PNG). Claude Code updated 2.1.92→2.1.112. Model updated from `claude-opus-4-6[1m]` to `claude-opus-4-7` in both `.claude.json` files (scalejoy-max + scalejoy-pro config dirs).
 
 ## Pick Up Next Session
 - **PRIORITY: Generate consolidated shopping list** — every part, every quantity, organized by vendor, so Tony can order immediately
@@ -43,6 +43,7 @@ type: agent-brain
 - Session: 1 to Life component-by-component review with Tony. Walked through F, P1, P2, pen system, track. Tony flagged pen mechanism as under-developed. Exhibition crunch — need to order parts ASAP.
 - Session: Video downloads — Bilibili (Yukimatsu Coachella) + YouTube (BUNT Coachella), yt-dlp 1080p
 - Session: MKV→MP4 conversion (David Byrne Coachella), disk cleanup ~35+ GB freed (duplicates + caches)
+- Session: Claude Code infra overhaul — claude-pool per-account backoffs, account config cleanup, eye-care + ambient-appearance rewrites, Claude Code 2.1.112 + Opus 4.7 model update
 
 ## 2026-04-14
 - Session: Completed Joint P1, P2, P3, P4 design/implement/render. P3/P4 discovery: 22° Z-joggles required. Updated vault project file with per-joint summary table.
