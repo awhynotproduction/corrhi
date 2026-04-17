@@ -43,6 +43,13 @@ When the user corrects Claude's approach or edits a proposal, log the correction
 - What the user wanted: Preserve collaborating artist info. Tracks with live guest appearances (STAY/Kid LAROI, DEVOTION/Dijon, I THINK YOU'RE SPECIAL/Tems, Essence/Wizkid+Tems, DAISIES/Mk.gee) should have had those artists in the metadata.
 - Pattern: When batch-modifying media metadata, READ existing tags first and preserve fields you're not intentionally changing. Don't blindly overwrite — merge. Especially for `artist` fields, check if there are featured/collaborating artists before flattening to a single name.
 
+### 2026-04-16 — Self-caught: CSV format change would break existing log
+- What Claude did: Changed `eye-care-did-2020` to write a 3-column CSV row (`timestamp,lux,note`) while the existing log has a 6-column header (`timestamp,lux,brightness,appearance,comfort,note`). Would have corrupted the log for `csv.DictReader`.
+- What the user wanted: N/A — caught and fixed before Tony saw it.
+- Pattern: When modifying a script that appends to an existing CSV, check the header in the existing file first. Keep the column count consistent; blank out unused fields rather than dropping columns.
+
+### 2026-04-16 — No other corrections (eye-care cleanup session)
+
 ### 2026-04-16 — SwiftBar switch action didn't work (env var not inherited)
 - What Claude did: Wired up the switch action using `param1=switch param2=general param3=$name` but didn't pass the active config dir — the script relied on `CLAUDE_CONFIG_DIR` from the env.
 - What the user wanted: Actions that actually work from SwiftBar (which runs plugins in a clean env with no shell variables set).

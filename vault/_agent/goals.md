@@ -6,6 +6,9 @@ type: agent-brain
 # Goals & Session Continuity
 
 ## Last Session
+2026-04-16 — **Eye-care script cleanup.** Stripped dead comfort-rating code from `eye-care-menubar.60s.sh` (~70 lines removed: calibration stats, brightness reading, mode var, legacy timer, unused vars). Cleaned `eye-care-did-2020` to remove `set-brightness` call; log entry keeps existing 6-column CSV schema (blank brightness/comfort fields) for backward compatibility.
+
+## Last Session (prev)
 2026-04-16 — **Claude Code infra overhaul + model update.** Full claude-pool login switcher rebuild: per-account backoff files (killed the death-spiral where one failed refresh blocked all accounts), fixed disabled account detection (jq `false // true` bug), fixed `cmd_switch` to pass active config dir explicitly (SwiftBar doesn't inherit `CLAUDE_CONFIG_DIR`), fixed `cmd_seed` to auto-refresh expired tokens before profile validation. Config: disabled tony-personal (free plan) and scalejoy-personal (trial expired), mapped scalejoy-max to `~/.claude-tony-personal`, scalejoy-pro to `~/.claude-scalejoy-pro`. SwiftBar CC plugin: added switch and launch actions per account. Eye-care plugin cleaned down to minimal (timer + did-2020 action + lux line). Replaced macOS notifications with `/tmp` flag file flash (8s confirmation). `ambient-appearance` rewritten to strip all brightness logic — Apple owns it now. New scripts: `claude-launch-window` (osascript window not tab), `eye-care-paper-test` (white fullscreen PNG). Claude Code updated 2.1.92→2.1.112. Model updated from `claude-opus-4-6[1m]` to `claude-opus-4-7` in both `.claude.json` files (scalejoy-max + scalejoy-pro config dirs).
 
 ## Pick Up Next Session
