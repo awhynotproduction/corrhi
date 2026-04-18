@@ -150,13 +150,15 @@ Build the minimum viable structure. Do NOT populate content yet. The structure i
    - `projects/`
    - `sources/`
    - `people/`
-   - `maps/`
+   - `verses/` (editorial syntheses)
+   - `seedbank/` (single-file concept inventories)
    - `lists/`
    - `self/`
    - `writing/`
    - `templates/`
    - `_review/`
    - `_agent/` with subfolders `memory/`, `research/`, `archive/`
+   - Plus `/dashboard.md` at vault root (home page)
 
    Drop a one-line `README.md` in each explaining its purpose in plain language. This keeps the empty vault legible before any note exists.
 

@@ -29,7 +29,7 @@
 - Wiki-links for traversing connections
 
 ## Active Projects
-See `maps/projects.md` for current project list.
+See `dashboard.md` (vault root) for current project list — dataview query surfaces active/planning/concept projects from `projects/` folder.
 
 ## Memory File Types
 Files in `_agent/memory/` use type prefixes:
